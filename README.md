@@ -12,3 +12,20 @@ Set the following environment variables
 - ssh_pass
 
 Exposes the SOCKS5 tunnel on port 1080
+
+## docker-compose
+```
+services:
+  sshtun:
+    image: ghcr.io/zveronline/docker-ssh-socks5-tunnel
+    stdin_open: true
+    tty: true
+    restart: always
+    ports:
+      - "1080:1080"
+    environment:
+      - ssh_host=vps.example.com
+      - ssh_port=22
+      - ssh_user=root
+      - ssh_pass=password
+```
